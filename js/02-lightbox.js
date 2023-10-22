@@ -18,8 +18,7 @@ function createMurkup(arr) {
 const galleryEl = document.querySelector(".gallery");
 galleryEl.insertAdjacentHTML("afterbegin", createMurkup(galleryItems));
 
-const gallery = new SimpleLightbox(".gallery .gallery__link", {
+new SimpleLightbox(".gallery .gallery__link", {
   captionsData: "alt",
   captionDelay: 250,
 });
-gallery.on("simple-lightbox");
