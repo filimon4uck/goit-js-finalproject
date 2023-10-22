@@ -30,14 +30,21 @@ function galleryHandler(evt) {
   const url = evt.target.dataset.source;
   createModal(url);
 }
+
 function createModal(url) {
   const instance = basicLightbox.create(`<div ><img src = "${url}"/> </div>`, {
+    event: {},
     onShow: (instance) => {
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
+          instance.event = e;
           instance.close();
         }
       });
+    },
+    onClose: (instance) => {
+      console.log(instance.event);
+      document.removeEventListener("keydown", instance.event);
     },
   });
   instance.show();
