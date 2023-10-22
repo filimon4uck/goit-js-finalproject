@@ -20,7 +20,6 @@ function createMurkup(arr) {
 }
 const galleryEl = document.querySelector(".gallery");
 galleryEl.insertAdjacentHTML("afterbegin", createMurkup(galleryItems));
-
 galleryEl.addEventListener("click", galleryHandler);
 function galleryHandler(evt) {
   if (evt.target === evt.currentTarget) {
@@ -30,7 +29,6 @@ function galleryHandler(evt) {
   const url = evt.target.dataset.source;
   createModal(url);
 }
-
 function createModal(url) {
   const instance = basicLightbox.create(`<div ><img src = "${url}"/> </div>`, {
     event: {},
