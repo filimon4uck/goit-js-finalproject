@@ -43,7 +43,6 @@ function createModal(url) {
       });
     },
     onClose: (instance) => {
-      console.log(instance.event);
       document.removeEventListener("keydown", instance.event);
     },
   });
