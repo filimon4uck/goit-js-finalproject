@@ -31,17 +31,19 @@ function galleryHandler(evt) {
 }
 function createModal(url) {
   const instance = basicLightbox.create(`<div ><img src = "${url}"/> </div>`, {
-    event: {},
+    func: {},
     onShow: (instance) => {
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          instance.event = e;
-          instance.close();
-        }
-      });
+      document.addEventListener(
+        "keydown",
+        (instance.func = (e) => {
+          if (e.key === "Escape") {
+            instance.close();
+          }
+        })
+      );
     },
     onClose: (instance) => {
-      document.removeEventListener("keydown", instance.event);
+      document.removeEventListener("keydown", instance.func);
     },
   });
   instance.show();
